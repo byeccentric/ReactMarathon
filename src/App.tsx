@@ -1,12 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
 
-import './custom.css';
-import style from './App.modules.scss'
+import style from './App.module.scss'
 
 const App: React.FC = () => {
     return (
-        <div className={cn(style.header, 'color')}>
+        <div className={cn(style.header)}>
             Yes, we did it!
             This is App Component!
         </div>
