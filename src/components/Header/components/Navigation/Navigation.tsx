@@ -1,14 +1,21 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { NAVIGATION_ITEMS } from 'constants/navigation';
+
 import cx from './Navigation.module.scss';
 
 const Navigation: React.FC = () => (
   <div className={cn(cx.root)}>
-    <div className={cn(cx.item, cx.active)}>Home</div>
-    <div className={cn(cx.item)}>Pokédex</div>
-    <div className={cn(cx.item)}>Legendaries</div>
-    <div className={cn(cx.item)}>Documentation</div>
+    {NAVIGATION_ITEMS.map((item: string, index: number) => (
+      <div
+        key={item}
+        className={cn(cx.item, {
+          [cx.active]: index === 0,
+        })}>
+        {item}
+      </div>
+    ))}
   </div>
 );
 

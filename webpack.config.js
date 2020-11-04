@@ -8,6 +8,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
       components: path.join(__dirname, 'src/components/'),
+      constants: path.join(__dirname, 'src/constants'),
     },
     plugins: [new DirectoryNamedWebpackPlugin({ exclude: /node_modules/ })],
   },
