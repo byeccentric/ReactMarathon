@@ -1,18 +1,17 @@
 import React from 'react';
-import cn from 'classnames';
+import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from 'components/Header';
-import Footer from 'components/Footer';
-
-import cx from './App.module.scss';
+import Home from 'pages/Home';
+import Pokedex from 'pages/Pokedex';
+import NotFound from 'pages/NotFound';
 
 const App: React.FC = () => {
   return (
-    <div className={cn(cx.container)}>
-      <Header />
-      <div className={cn(cx.content)}>Yes, we did it! This is App Component!</div>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Route path="/" exact component={Home} />
+      <Route path="/pokedex" component={Pokedex} />
+      <Route component={NotFound} />
+    </BrowserRouter>
   );
 };
 
