@@ -8,7 +8,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
       components: path.join(__dirname, 'src/components/'),
-      constants: path.join(__dirname, 'src/constants'),
+      pages: path.join(__dirname, 'src/pages/'),
     },
     plugins: [new DirectoryNamedWebpackPlugin({ exclude: /node_modules/ })],
   },
@@ -17,6 +17,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
+  },
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/,
+    poll: 1000,
   },
   module: {
     rules: [
@@ -44,7 +49,34 @@ module.exports = {
               },
             },
           },
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: path.resolve(__dirname, 'src/styles/_variables.scss'),
+            },
+          },
         ],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+      {
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: ['url-loader'],
       },
     ],
   },
@@ -57,6 +89,7 @@ module.exports = {
     port: 3000,
     open: true,
     hot: true,
+    historyApiFallback: true,
   },
   devtool: 'source-map',
 };

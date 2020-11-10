@@ -1,0 +1,50 @@
+.root {
+  border: none;
+  border-radius: 11px;
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px 9px;
+  cursor: pointer;
+  outline: 0;
+
+  font-style: normal;
+  font-weight: bold;
+
+  &:active {
+    box-shadow: inset 0px -6px 0px rgba(0, 0, 0, 0.18);
+    padding-bottom: 6px;
+  }
+
+  &_width_wide {
+    width: 100%;
+  }
+
+  &_width_auto {
+    width: auto;
+    /* idk if its necessary */
+    min-width: 231px;
+  }
+
+  &_color_secondary {
+    background: #f2cb07;
+  }
+
+  &_color_primary {
+    background: #73d677;
+  }
+
+  &_size_normal {
+    font-size: 23px;
+    line-height: 27px;
+    height: 66px;
+  }
+
+  &_size_small {
+    font-size: 17px;
+    line-height: 20px;
+    height: 40px;
+  }
+}

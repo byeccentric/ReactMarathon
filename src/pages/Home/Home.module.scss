@@ -1,0 +1,31 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  background: linear-gradient(180deg, $third 0%, $primary 100%);
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  padding: 128px 0;
+  justify-content: center;
+}
+
+.left {
+  max-width: 506px;
+  width: 100%;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.text {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 37px;
+  margin-bottom: 64px;
+}
