@@ -1,18 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { useRoutes } from 'hookrouter';
 
-import Home from 'pages/Home';
-import Pokedex from 'pages/Pokedex';
 import NotFound from 'pages/NotFound';
 
+import routes from './routes';
+
 const App: React.FC = () => {
-  return (
-    <BrowserRouter>
-      <Route path="/" exact component={Home} />
-      <Route path="/pokedex" component={Pokedex} />
-      <Route component={NotFound} />
-    </BrowserRouter>
-  );
+  const match = useRoutes(routes);
+
+  return match || <NotFound />;
 };
 
 export default App;
