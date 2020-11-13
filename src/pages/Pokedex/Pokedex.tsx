@@ -16,6 +16,7 @@ const Pokedex: React.FC = () => {
       <div className={cx.content}>
         {POKEMONS.map((item: IPokemon) => (
           <PokemonCard
+            key={item.id}
             name={item.name_clean}
             attack={item.stats.attack}
             defense={item.stats.defense}
