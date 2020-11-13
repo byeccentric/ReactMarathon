@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
+import useParallax from 'hooks/useParallax';
 
 import s from './Parallax.module.scss';
 
@@ -8,19 +10,8 @@ import PokeBallPng from './assets/PokeBall2.png';
 import CloudBigPng from './assets/Cloud2.png';
 import PikachuPng from './assets/Pikachu.png';
 
-const Parallax = () => {
-  const [screenX, setScreenX] = useState(0);
-  const [screenY, setScreenY] = useState(0);
-  useEffect(() => {
-    const handleMouseMove = (event: MouseEvent) => {
-      setScreenX(event.screenX);
-      setScreenY(event.screenY);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [screenX, screenY]);
+const Index = () => {
+  const { screenX, screenY } = useParallax();
 
   return (
     <div className={s.root}>
@@ -64,4 +55,4 @@ const Parallax = () => {
   );
 };
 
-export default Parallax;
+export default Index;

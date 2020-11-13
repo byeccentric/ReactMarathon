@@ -12,7 +12,7 @@ import Parallax from './components/Parallax';
 
 import cx from './Home.module.scss';
 
-const Home: React.FC = () => {
+const Index: React.FC = () => {
   const goToPokedexPage = useCallback(() => navigate(ELink.POKEDEX), []);
 
   return (
@@ -32,4 +32,4 @@ const Home: React.FC = () => {
   );
 };
 
-export default Home;
+export default Index;

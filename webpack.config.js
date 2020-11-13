@@ -1,6 +1,5 @@
 const path = require('path');
 const HTMLWebpackPlugins = require('html-webpack-plugin');
-const DirectoryNamedWebpackPlugin = require('directory-named-webpack-plugin');
 const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
@@ -12,7 +11,6 @@ module.exports = {
       hooks: path.join(__dirname, 'src/hooks/'),
       types: path.join(__dirname, 'src/types/'),
     },
-    plugins: [new DirectoryNamedWebpackPlugin({ exclude: /node_modules/ })],
   },
   mode: NODE_ENV ? NODE_ENV : 'development',
   entry: path.resolve(__dirname, 'src/index.ts'),
