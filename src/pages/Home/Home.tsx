@@ -20,9 +20,7 @@ const Home: React.FC = () => {
       <div className={cx.content}>
         <div className={cx.left}>
           <Heading level={1}>
-            <span>
-              <span className={cx.bold}>Find</span> all your favorite <span className={cx.bold}>Pokemon</span>
-            </span>
+            <b>Find</b> all your favorite <b>Pokemon</b>
           </Heading>
           <div className={cx.text}>You can know the type of Pokemon, its strengths, disadvantages and abilities</div>
           <Button onClick={goToPokedexPage}>See pokemons</Button>

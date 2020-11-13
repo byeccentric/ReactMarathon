@@ -2,8 +2,24 @@ import { useEffect, useState } from 'react';
 
 import IPokemonData from 'types/pokemonData';
 
-const usePokemons = (limit = 12, offset = 0) => {
-  const [data, setData] = useState({});
+export interface IUsePokemons {
+  isLoading: boolean;
+  isError: boolean;
+  data: IPokemonData;
+}
+
+const INITIAL_DATA_VALUES: IPokemonData = {
+  total: 0,
+  count: 0,
+  limit: 0,
+  offset: 0,
+  pokemons: [],
+};
+
+export type TUsePokemons = (limit?: number, offset?: number) => IUsePokemons;
+
+const usePokemons: TUsePokemons = (limit = 12, offset = 0) => {
+  const [data, setData] = useState(INITIAL_DATA_VALUES);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
