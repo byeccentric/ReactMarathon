@@ -1,7 +1,9 @@
 .root {
-  background: #f5db13;
+  position: relative;
+  background: $third;
   box-shadow: 0 4px 16px rgba(1, 28, 64, 0.2);
   height: 93px;
+  width: 100%;
 }
 
 .container {

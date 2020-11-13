@@ -1,15 +1,12 @@
-.root {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
 .content {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   max-width: 1125px;
   margin: 50px auto 0;
+}
+
+.title {
+  margin: 50px auto;
+  text-align: center;
 }

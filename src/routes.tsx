@@ -4,35 +4,27 @@ import Home from 'pages/Home';
 import Pokedex from 'pages/Pokedex';
 import Empty from 'pages/Empty';
 
-interface IRoutes {
-  [name: string]: () => JSX.Element;
-}
-
-interface IMenuItem {
-  title: string;
-  link: string;
-  component: () => JSX.Element;
-}
+import IRoutes, { IMenuItem, ELink } from 'types/navigation';
 
 export const GENERAL_MENU: IMenuItem[] = [
   {
     title: 'Home',
-    link: '/',
+    link: ELink.HOME,
     component: () => <Home />,
   },
   {
     title: 'Pokédex',
-    link: '/pokedex',
+    link: ELink.POKEDEX,
     component: () => <Pokedex />,
   },
   {
     title: 'Legendaries',
-    link: '/legendaries',
+    link: ELink.LEGENDARIES,
     component: () => <Empty title="Legendaries page" />,
   },
   {
     title: 'Documentation',
-    link: '/documentation',
+    link: ELink.DOCUMENTATION,
     component: () => <Empty title="Documentation page" />,
   },
 ];
