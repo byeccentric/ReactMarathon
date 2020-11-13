@@ -6,14 +6,14 @@ import Button from 'components/Button';
 import Heading from 'components/Heading';
 import Layout from 'components/Layout';
 
-import { ELink as ELinkEnum } from 'types/navigation';
+import { ELink } from 'types/navigation';
 
 import Parallax from './components/Parallax';
 
 import cx from './Home.module.scss';
 
 const Home: React.FC = () => {
-  const goToPokedexPage = useCallback(() => navigate(ELinkEnum.POKEDEX), []);
+  const goToPokedexPage = useCallback(() => navigate(ELink.POKEDEX), []);
 
   return (
     <Layout className={cx.root}>
