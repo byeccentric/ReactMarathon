@@ -1,16 +1,44 @@
 .root {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   min-height: 100vh;
-  background: linear-gradient(180deg, $third 0%, $primary 100%);
+  background: $danger;
   overflow: hidden;
 }
 
+.title {
+  font-size: 700px;
+  line-height: 818.3px;
+  letter-spacing: 4px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .text {
+  margin-bottom: 62px;
   font-style: normal;
-  font-weight: normal;
-  font-size: 32px;
-  line-height: 37px;
-  margin-bottom: 64px;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  text-align: center;
+
+  color: $white;
+}
+
+.black {
+  color: $dark;
+}
+
+.image {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 90px;
 }

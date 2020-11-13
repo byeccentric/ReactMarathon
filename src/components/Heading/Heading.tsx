@@ -1,13 +1,15 @@
 import React, { useMemo } from 'react';
+import cn from 'classnames';
 
 import cx from './Heading.module.scss';
 
 interface IHeading {
   level: 1 | 2 | 3 | 4 | 5 | 6;
+  className?: string;
 }
 
-const Heading: React.FC<IHeading> = ({ level, children }) => {
-  const className = useMemo(() => {
+const Heading: React.FC<IHeading> = ({ className, level, children }) => {
+  const rootName = useMemo(() => {
     switch (level) {
       case 1:
         return 'root_level_1';
@@ -28,7 +30,7 @@ const Heading: React.FC<IHeading> = ({ level, children }) => {
   return React.createElement(
     `h${level}`,
     {
-      className: cx[className],
+      className: cn(cx[rootName], className),
     },
     children,
   );

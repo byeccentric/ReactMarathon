@@ -1,16 +1,29 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { navigate } from 'hookrouter';
 
-import Header from 'components/Header';
-import Footer from 'components/Footer';
+import Button from 'components/Button';
+
+import TeamRocket from './assets/TeamRocket.png';
 
 import cx from './NotFound.module.scss';
 
 const NotFound: React.FC = () => {
+  const goToHomePage = useCallback(() => navigate('/'), []);
+
   return (
     <div className={cx.root}>
-      <Header />
-      <div className={cx.text}>Hello im not found page</div>
-      <Footer />
+      <div className={cx.title}>404</div>
+      <div className={cx.image}>
+        <img src={TeamRocket} alt="404" />
+      </div>
+      <div className={cx.text}>
+        The rocket team <span className={cx.black}>has won this time.</span>
+      </div>
+      <div className={cx.button}>
+        <Button color="secondary" onClick={goToHomePage}>
+          Return
+        </Button>
+      </div>
     </div>
   );
 };
