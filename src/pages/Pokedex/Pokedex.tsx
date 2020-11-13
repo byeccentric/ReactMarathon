@@ -1,20 +1,46 @@
 import React from 'react';
 
-import Header from 'components/Header';
 import Footer from 'components/Footer';
+import Layout from 'components/Layout';
+import Heading from 'components/Heading';
 
-import POKEMONS, { IPokemon } from 'mocks/pokemon';
+import usePokemons from 'hooks/usePokemons';
+import { IPokemon } from 'types/pokemonData';
 
 import PokemonCard from './components/PokemonCard';
 
 import cx from './Pokedex.module.scss';
 
 const Pokedex: React.FC = () => {
+  const { data, isLoading, isError } = usePokemons();
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <Heading level={2} className={cx.title}>
+          Loading ...
+        </Heading>
+      </Layout>
+    );
+  }
+
+  if (isError) {
+    return (
+      <Layout>
+        <Heading level={2} className={cx.title}>
+          Error happens =(
+        </Heading>
+      </Layout>
+    );
+  }
+
   return (
-    <div className={cx.root}>
-      <Header />
+    <Layout>
+      <Heading level={2} className={cx.title}>
+        {data.total || 0} <b>Pokemons</b> for you to choose your favorite
+      </Heading>
       <div className={cx.content}>
-        {POKEMONS.map((item: IPokemon) => (
+        {(data.pokemons || []).map((item: IPokemon) => (
           <PokemonCard
             key={item.id}
             name={item.name_clean}
@@ -26,7 +52,7 @@ const Pokedex: React.FC = () => {
         ))}
       </div>
       <Footer />
-    </div>
+    </Layout>
   );
 };
 

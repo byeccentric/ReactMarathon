@@ -3,12 +3,14 @@ import { navigate } from 'hookrouter';
 
 import Button from 'components/Button';
 
+import { ELink as ELinkEnum } from 'types/navigation';
+
 import TeamRocket from './assets/TeamRocket.png';
 
 import cx from './NotFound.module.scss';
 
 const NotFound: React.FC = () => {
-  const goToHomePage = useCallback(() => navigate('/'), []);
+  const goToHomePage = useCallback(() => navigate(ELinkEnum.HOME), []);
 
   return (
     <div className={cx.root}>

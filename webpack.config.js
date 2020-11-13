@@ -9,7 +9,8 @@ module.exports = {
     alias: {
       components: path.join(__dirname, 'src/components/'),
       pages: path.join(__dirname, 'src/pages/'),
-      mocks: path.join(__dirname, 'src/mocks/'),
+      hooks: path.join(__dirname, 'src/hooks/'),
+      types: path.join(__dirname, 'src/types/'),
     },
     plugins: [new DirectoryNamedWebpackPlugin({ exclude: /node_modules/ })],
   },
