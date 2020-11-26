@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react';
 
-import IPokemonData from 'types/pokemonData';
 import req from 'utils/request';
-import { ENDPOINT } from '../config/urls';
+import { ENDPOINT } from 'config/urls';
 
-const useData = (endpoint: ENDPOINT, query: object, deps: any[] = []) => {
-  const [data, setData] = useState<any>(null);
+const useData = <T>(endpoint: ENDPOINT, query: object, deps: any[] = []) => {
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-    const getData = async () => {
+    const getData = async (): Promise<void> => {
       try {
-        const result: IPokemonData = await req(endpoint, query);
+        const result = await req<T>(endpoint, query);
         setData(result);
       } catch (e) {
         setIsError(true);

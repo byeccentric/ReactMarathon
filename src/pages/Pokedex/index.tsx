@@ -5,8 +5,10 @@ import Layout from 'components/Layout';
 import Heading from 'components/Heading';
 
 import useData from 'hooks/getData';
-import { IPokemon } from 'types/pokemonData';
+import useDebounce from 'hooks/useDebounce';
+import IPokemonData, { IPokemon } from 'types/pokemonsData';
 import { ENDPOINT } from 'config/urls';
+import toCapitalizeFirstLetter from 'utils/toCapitalizeFirstLetter';
 
 import PokemonCard from './components/PokemonCard';
 
@@ -17,18 +19,26 @@ const INITIAL_DATA = {
   pokemons: [],
 };
 
-const Pokedex: React.FC = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState({});
+interface IQuery {
+  name?: string;
+}
 
-  const { data = INITIAL_DATA, isLoading = false, isError = true } = useData(ENDPOINT.GET_POKEMONS, query, [
-    searchValue,
-  ]);
+const Pokedex: React.FC = () => {
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [query, setQuery] = useState<IQuery>({});
+
+  const debouncedValue = useDebounce(searchValue, 500);
+
+  const { data = INITIAL_DATA, isLoading = false, isError = true } = useData<IPokemonData>(
+    ENDPOINT.GET_POKEMONS,
+    query,
+    [debouncedValue],
+  );
 
   const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
-    setQuery((s) => ({
-      ...s,
+    setQuery((state) => ({
+      ...state,
       name: e.target.value,
     }));
   }, []);
@@ -68,7 +78,7 @@ const Pokedex: React.FC = () => {
         {(data?.pokemons || []).map((item: IPokemon) => (
           <PokemonCard
             key={item.id}
-            name={item.name_clean}
+            name={toCapitalizeFirstLetter(item.name_clean)}
             attack={item.stats.attack}
             defense={item.stats.defense}
             types={item.types}

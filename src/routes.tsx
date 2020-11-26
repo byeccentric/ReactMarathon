@@ -5,6 +5,7 @@ import Pokedex from 'pages/Pokedex';
 import Empty from 'pages/Empty';
 
 import IRoutes, { IMenuItem, ELink } from 'types/navigation';
+import Pokemon from './pages/Pokemon';
 
 export const GENERAL_MENU: IMenuItem[] = [
   {
@@ -29,7 +30,15 @@ export const GENERAL_MENU: IMenuItem[] = [
   },
 ];
 
-const routes: IRoutes = GENERAL_MENU.reduce((acc: IRoutes, item: IMenuItem) => {
+const SECOND_ROUNTES: IMenuItem[] = [
+  {
+    title: 'Pokemon',
+    link: ELink.POKEMON,
+    component: ({ id }) => <Pokemon id={id} />,
+  },
+];
+
+const routes: IRoutes = [...GENERAL_MENU, ...SECOND_ROUNTES].reduce((acc: IRoutes, item: IMenuItem) => {
   acc[item.link] = item.component;
   return acc;
 }, {});

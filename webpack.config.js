@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   mode: NODE_ENV ? NODE_ENV : 'development',
-  entry: path.resolve(__dirname, 'src/urls.ts'),
+  entry: path.resolve(__dirname, 'src/index.ts'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
