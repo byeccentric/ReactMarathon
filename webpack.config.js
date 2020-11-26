@@ -10,10 +10,12 @@ module.exports = {
       pages: path.join(__dirname, 'src/pages/'),
       hooks: path.join(__dirname, 'src/hooks/'),
       types: path.join(__dirname, 'src/types/'),
+      utils: path.join(__dirname, 'src/utils/'),
+      config: path.join(__dirname, 'src/config/'),
     },
   },
   mode: NODE_ENV ? NODE_ENV : 'development',
-  entry: path.resolve(__dirname, 'src/index.ts'),
+  entry: path.resolve(__dirname, 'src/urls.ts'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
