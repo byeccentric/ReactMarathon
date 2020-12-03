@@ -11,11 +11,15 @@
   "author": "Byeccentric <eccentric74@yandex.ru>",
   "license": "MIT",
   "dependencies": {
+    "@hapi/hapi": "^20.0.3",
+    "@hapi/inert": "^6.0.3",
     "@types/classnames": "^2.2.11",
     "@types/react": "^16.9.55",
     "@types/react-dom": "^16.9.9",
     "classnames": "^2.2.6",
+    "handlebars": "^4.7.6",
     "hookrouter": "^1.2.3",
+    "path": "^0.12.7",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "ts-loader": "^8.0.7",
@@ -67,6 +71,7 @@
     "url-loader": "^4.1.1",
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-node-externals": "^2.5.2"
   }
 }
