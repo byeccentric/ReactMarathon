@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
-export interface IGetPokemon {
+
+export interface IPokemon {
   name_clean: string;
   abilities: string[];
   stats: {
@@ -19,10 +20,12 @@ export interface IGetPokemon {
   is_default: boolean;
   order: number;
   weight: number;
-  attack: number;
-  defense: number;
-  hp: number;
-  'special-attack': number;
-  'special-defense': number;
-  speed: number;
+}
+
+export default interface IPokemonData {
+  total: number;
+  count: number;
+  offset: number;
+  limit: number;
+  pokemons: IPokemon[];
 }
